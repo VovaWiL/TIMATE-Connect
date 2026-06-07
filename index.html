@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>TIMATE Connect</title>
+    <style>
+        /* Сбрасываем все стандартные отступы браузера */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000; /* Черный фон, пока грузится сайт */
+            overflow: hidden;         /* Запрещаем появление полос прокрутки */
+        }
+
+        /* Наш безрамочный контейнер для DistroSea на 100% экрана */
+        #cloud-pc-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="cloud-pc-frame" src="https://distrosea.com/view/"></iframe>
+
+    <script>
+        // Обработчик аппаратных кнопок пульта Samsung
+        window.onload = function() {
+            document.addEventListener('keydown', function(e) {
+                switch(e.keyCode) {
+                    case 10009: // Код кнопки "Назад" (Return/Back) на пульте Tizen TV
+                        try {
+                            // Инициируем безопасный выход из приложения TIMATE Connect
+                            tizen.application.getCurrentApplication().exit();
+                        } catch (error) {
+                            console.error("Не удалось закрыть приложение через Tizen API:", error);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            });
+        };
+    </script>
+</body>
+</html>
