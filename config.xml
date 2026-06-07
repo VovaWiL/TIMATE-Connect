@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://timate.ru/timateconnect" version="1.0.0" viewmodes="fullscreen">
+    
+    <tizen:application id="XlK3jDn5Am.TimateConnect" package="XlK3jDn5Am" required_version="6.0"/>
+    
+    <content src="index.html"/>
+    
+    <feature name="http://tizen.org/feature/screen.size.all"/>
+    
+    <access origin="*" subdomains="true"/>
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    
+    <profile name="tv-samsung"/>
+</widget>
