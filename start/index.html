@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>TIMATE Connect</title>
+    <style>
+        /* Убираем все отступы, полосы прокрутки и рамки */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            overflow: hidden;
+        }
+
+        /* Наше окно без рамок на весь экран телевизора */
+        #cloud-pc-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="cloud-pc-frame" src="https://distrosea.com/view/"></iframe>
+
+    <script>
+        // Код для обработки пульта управления Samsung
+        window.onload = function() {
+            document.addEventListener('keydown', function(e) {
+                switch(e.keyCode) {
+                    case 10009: // Кнопка "Назад" (Return) на пульте ТВ
+                        // Если пользователь нажал назад, закрываем приложение TIMATE Connect
+                        tizen.application.getCurrentApplication().exit();
+                        break;
+                }
+            });
+        };
+    </script>
+</body>
+</html>
